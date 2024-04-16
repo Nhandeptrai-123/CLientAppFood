@@ -24,6 +24,7 @@
             android:layout_height="match_parent"
             app:iss_delay="2000"
             app:iss_no_dots="true"
+            app:iss_auto_cycle="true"
             app:iss_period="2000"
             app:iss_text_align="CENTER" />
 
@@ -37,7 +38,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/viewAllMenu" />
 
     <TextView
         android:id="@+id/textView2"
@@ -50,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/viewAllMenu"
         android:layout_width="80dp"
         android:layout_height="25dp"
         android:layout_marginTop="16dp"
