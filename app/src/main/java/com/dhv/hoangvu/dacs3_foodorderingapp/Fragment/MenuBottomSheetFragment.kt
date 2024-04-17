@@ -1,10 +1,11 @@
-package com.dhv.hoangvu.dacs3_foodorderingapp
+package com.dhv.hoangvu.dacs3_foodorderingapp.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dhv.hoangvu.dacs3_foodorderingapp.R
 import com.dhv.hoangvu.dacs3_foodorderingapp.adapter.MenuAdapter
 import com.dhv.hoangvu.dacs3_foodorderingapp.databinding.FragmentMenuBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

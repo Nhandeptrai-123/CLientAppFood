@@ -1,60 +1,118 @@
 package com.dhv.hoangvu.dacs3_foodorderingapp.Fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dhv.hoangvu.dacs3_foodorderingapp.R
+import com.dhv.hoangvu.dacs3_foodorderingapp.adapter.MenuAdapter
+import com.dhv.hoangvu.dacs3_foodorderingapp.databinding.FragmentSearchBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [searchFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class searchFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var adapter: MenuAdapter
+    private lateinit var binding: FragmentSearchBinding
+    private val orignalMenuFoodName = listOf(
+        "Burger",
+        "Pizza",
+        "Pasta",
+        "Noodles",
+        "Sandwich",
+        "Burger",
+        "Pizza",
+        "Pasta",
+        "Noodles",
+        "Sandwich"
+    )
+    private val orrignalMenuItemPrice =
+        listOf("10$", "20$", "15$", "10$", "5$", "10$", "20$", "15$", "10$", "5$")
+    private val orrignalMenuFoodImages =
+        listOf(
+            R.drawable.photo1,
+            R.drawable.photo2,
+            R.drawable.photo3,
+            R.drawable.photo1,
+            R.drawable.photo2,
+            R.drawable.photo3,
+            R.drawable.photo1,
+            R.drawable.photo2,
+            R.drawable.photo3,
+            R.drawable.photo1
+        )
+
+    private val filterMenuFoodName = mutableListOf<String>() // danh sách lưu trữ các món ăn sau khi lọc tìm kiếm
+    private val filterMenuItemPrice = mutableListOf<String>()
+    private val filterMenuFoodImages = mutableListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+        binding = FragmentSearchBinding.inflate(inflater, container, false)
+
+        adapter = MenuAdapter(
+            filterMenuFoodName,
+            filterMenuItemPrice,
+            filterMenuFoodImages
+        )// MenuAdapter được khởi tạo với các dữ liệu rỗng
+        binding.menuRecylerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.menuRecylerView.adapter = adapter
+
+        setupSearchView()
+        showAllMenu()
+        return binding.root
+    }
+
+    private fun showAllMenu() {
+        filterMenuFoodName.clear()
+        filterMenuItemPrice.clear()
+        filterMenuFoodImages.clear()//xoá các danh sách tìm kiếm trước đó
+
+        filterMenuFoodName.addAll(orignalMenuFoodName)//thêm tất cả các món ăn từ danh sách đầu vào danh sách lọc
+        filterMenuItemPrice.addAll(orrignalMenuItemPrice)
+        filterMenuFoodImages.addAll(orrignalMenuFoodImages)
+    }
+
+    private fun setupSearchView() {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            android.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                filterMenuItems(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                filterMenuItems(newText)
+                return true
+            }
+        })
+    }
+
+    private fun filterMenuItems(query: String?) {
+        filterMenuFoodName.clear()
+        filterMenuItemPrice.clear()
+        filterMenuFoodImages.clear()
+
+        orignalMenuFoodName.forEachIndexed { index, foodName ->
+            if (foodName.contains(query.toString(), ignoreCase = true)) {
+                filterMenuFoodName.add(foodName)
+                filterMenuItemPrice.add(orrignalMenuItemPrice[index])
+                filterMenuFoodImages.add(orrignalMenuFoodImages[index])
+            }
+        }
+        adapter.notifyDataSetChanged()// cập nhật lại danh sách món ăn trên recyler
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment searchFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            searchFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+
     }
 }
