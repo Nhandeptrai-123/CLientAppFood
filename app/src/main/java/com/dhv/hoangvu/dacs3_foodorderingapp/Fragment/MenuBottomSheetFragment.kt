@@ -61,7 +61,8 @@ class MenuBottomSheetFragment : BottomSheetDialogFragment() {
         val adapter = MenuAdapter(
             ArrayList(menuFoodName),
             ArrayList(menuItemPrice),
-            ArrayList(menuFoodImages)
+            ArrayList(menuFoodImages),
+            requireContext()
         )
         binding.menuRecylerView.layoutManager = LinearLayoutManager(requireContext())
         binding.menuRecylerView.adapter = adapter

@@ -4,21 +4,21 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/home"
-        android:title="Home" />
+        android:title="Trang chủ" />
     <item
         android:id="@+id/cartFragment"
         android:icon="@drawable/cart"
-        android:title="Cart" />
+        android:title="Giỏ hàng" />
     <item
         android:id="@+id/searchFragment"
         android:icon="@drawable/search"
-        android:title="Search" />
+        android:title="Tìm kiếm" />
     <item
         android:id="@+id/historyFragment"
         android:icon="@drawable/history"
-        android:title="History" />
+        android:title="Lịch sử" />
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/profile"
-        android:title="Profile" />
+        android:title="Hồ sơ" />
 </menu>

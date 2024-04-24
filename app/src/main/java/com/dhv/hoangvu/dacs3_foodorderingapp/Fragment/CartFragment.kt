@@ -1,11 +1,13 @@
 package com.dhv.hoangvu.dacs3_foodorderingapp.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dhv.hoangvu.dacs3_foodorderingapp.PayOutActivity
 import com.dhv.hoangvu.dacs3_foodorderingapp.R
 import com.dhv.hoangvu.dacs3_foodorderingapp.adapter.CartAdapter
 import com.dhv.hoangvu.dacs3_foodorderingapp.databinding.FragmentCartBinding
@@ -42,6 +44,11 @@ class CartFragment : Fragment() {
         binding.cartRevylerView.layoutManager = LinearLayoutManager(requireContext())
         binding.cartRevylerView.adapter = adapter
 
+
+        binding.proceedButton.setOnClickListener {
+            val intent = Intent(requireContext(), PayOutActivity::class.java)
+            startActivity(intent)
+        }
 
         return binding.root
     }

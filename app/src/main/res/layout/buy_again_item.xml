@@ -64,7 +64,7 @@
                 android:layout_height="30dp"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/addtocartshape"
-                android:text="Buy Again"
+                android:text="Mua lại"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="14sp"

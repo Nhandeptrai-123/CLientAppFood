@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_weight="1"
-                android:text="Name"
+                android:text="Họ và tên"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -41,7 +41,7 @@
                 android:background="@android:color/transparent"
                 android:ems="10"
                 android:inputType="text"
-                android:hint="Name" />
+                android:hint="Nhập họ và tên" />
         </LinearLayout>
 
         <LinearLayout
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_weight="1"
-                android:text="Adress"
+                android:text="Địa chỉ"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -124,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_weight="1"
-                android:text="Phone"
+                android:text="Số điện thoại"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -151,7 +151,7 @@
         android:layout_marginBottom="32dp"
         android:background="@drawable/proceedbuttonshape"
         android:elevation="5dp"
-        android:text="Save Information"
+        android:text="Lưu thông tin"
         android:textAllCaps="false"
         android:textColor="@color/textcolor"
         android:textSize="20sp" />

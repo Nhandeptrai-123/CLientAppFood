@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
         })
 
         val foodName = listOf("buger", "sandwich", "momo", "item")
-        val price = listOf("5$", "6$", "7$", "8$")
+        val price = listOf("5$", "116$", "7$", "8$")
         val populerFoodImages =
             listOf(R.drawable.photo1, R.drawable.photo2, R.drawable.photo3, R.drawable.photo1)
 

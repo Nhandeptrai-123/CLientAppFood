@@ -46,20 +46,20 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="Popular"
+        android:text="Phổ biến"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
         android:id="@+id/viewAllMenu"
-        android:layout_width="80dp"
+        android:layout_width="90dp"
         android:layout_height="25dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/textshape"
         android:elevation="5dp"
         android:gravity="center"
-        android:text="View Menu"
+        android:text="Xem món ăn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

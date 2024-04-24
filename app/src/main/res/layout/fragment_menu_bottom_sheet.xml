@@ -23,7 +23,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="Cart"
+        android:text="Danh sách món ăn"
         android:textColor="@color/black"
         android:textSize="24sp" />
 

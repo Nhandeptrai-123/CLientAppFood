@@ -43,7 +43,8 @@ class searchFragment : Fragment() {
             R.drawable.photo1
         )
 
-    private val filterMenuFoodName = mutableListOf<String>() // danh sách lưu trữ các món ăn sau khi lọc tìm kiếm
+    private val filterMenuFoodName =
+        mutableListOf<String>() // danh sách lưu trữ các món ăn sau khi lọc tìm kiếm
     private val filterMenuItemPrice = mutableListOf<String>()
     private val filterMenuFoodImages = mutableListOf<Int>()
 
@@ -62,7 +63,8 @@ class searchFragment : Fragment() {
         adapter = MenuAdapter(
             filterMenuFoodName,
             filterMenuItemPrice,
-            filterMenuFoodImages
+            filterMenuFoodImages,
+            requireContext()
         )// MenuAdapter được khởi tạo với các dữ liệu rỗng
         binding.menuRecylerView.layoutManager = LinearLayoutManager(requireContext())
         binding.menuRecylerView.adapter = adapter
