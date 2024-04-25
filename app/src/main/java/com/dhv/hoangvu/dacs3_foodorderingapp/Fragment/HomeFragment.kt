@@ -44,9 +44,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val imageList = ArrayList<SlideModel>()
-        imageList.add(SlideModel(R.drawable.banner1, ScaleTypes.FIT))
-        imageList.add(SlideModel(R.drawable.banner2, ScaleTypes.FIT))
-        imageList.add(SlideModel(R.drawable.banner3, ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.banhmy, ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.buncha, ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.truyenthong, ScaleTypes.FIT))
 
         val imageSlider = binding.imageSlider
         imageSlider.setImageList(imageList)
@@ -71,7 +71,7 @@ class HomeFragment : Fragment() {
             listOf(R.drawable.photo1, R.drawable.photo2, R.drawable.photo3, R.drawable.photo1)
 
 
-        val adapter = PopulerAdapter(foodName, populerFoodImages, price)
+        val adapter = PopulerAdapter(foodName, populerFoodImages, price,requireContext())
         binding.populerRecycler.layoutManager = LinearLayoutManager(requireContext())
         binding.populerRecycler.adapter = adapter
 

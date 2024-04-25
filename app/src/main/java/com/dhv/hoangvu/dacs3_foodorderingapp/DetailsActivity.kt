@@ -25,5 +25,9 @@ class DetailsActivity : AppCompatActivity() {
         val foodImage = intent.getIntExtra("MenuItemImage", 0)
         binding.tvDetailFoodName.text = foodName
         binding.imgFood.setImageResource(foodImage)
+
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 }

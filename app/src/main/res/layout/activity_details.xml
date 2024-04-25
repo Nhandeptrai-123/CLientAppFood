@@ -8,7 +8,7 @@
     tools:context=".DetailsActivity">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/btnBack"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
@@ -17,7 +17,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arrow" />
+        android:src="@drawable/arrow" />
 
     <TextView
         android:id="@+id/tvDetailFoodName"
@@ -25,9 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Food name"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
@@ -56,6 +58,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Mô tả"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView4" />
 
@@ -66,6 +70,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Lorem ipsum dolor sit amet,  consectetur adipiscing elit,  sed do eiusmod tempor incididunt  ut labore et dolore magna aliqua. Ut enim ad "
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -76,6 +81,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Nguyên Liệu"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/tvMoTa"
         app:layout_constraintTop_toBottomOf="@+id/tvMoTa" />
 
@@ -84,8 +91,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="TextViewdsd"
         android:inputType="textMultiLine"
+        android:text="TextViewdsd"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/addtocartshape"
+        android:text="Thêm vào giỏ hàng"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNguyenLieu" />
 </androidx.constraintlayout.widget.ConstraintLayout>
