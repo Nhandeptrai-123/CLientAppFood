@@ -9,21 +9,26 @@ import androidx.core.view.WindowInsetsCompat
 import com.dhv.hoangvu.dacs3_foodorderingapp.databinding.ActivitySignBinding
 
 class SignActivity : AppCompatActivity() {
-    private val binding: ActivitySignBinding by lazy{
+    private val binding: ActivitySignBinding by lazy {
         ActivitySignBinding.inflate(layoutInflater)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
         binding.alreadyhavebutton.setOnClickListener {
-            val intent = Intent(this,LoginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        binding.btnCreate.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }
