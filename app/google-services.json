@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "236085361383",
+    "firebase_url": "https://foodorderingapp-dacs3it-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "foodorderingapp-dacs3it",
+    "storage_bucket": "foodorderingapp-dacs3it.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236085361383:android:4dea1b4e16b503573fc042",
+        "android_client_info": {
+          "package_name": "com.dhv.hoangvu.dacs3_foodorderingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOx_DsBFxgrkxi4VyLUJh2YqBUnOfNmEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236085361383:android:92d1bd9a5fac9b6a3fc042",
+        "android_client_info": {
+          "package_name": "com.dhv.hoangvu.dacs3_foodorderingapp_admin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOx_DsBFxgrkxi4VyLUJh2YqBUnOfNmEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
