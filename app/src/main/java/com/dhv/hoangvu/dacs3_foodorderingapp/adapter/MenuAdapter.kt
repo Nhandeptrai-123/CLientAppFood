@@ -59,7 +59,7 @@ class MenuAdapter(
             val menuItem = menuItems[position]
             binding.apply {
                 menuFoodName.text = menuItem.nameFood
-                menuPrice.text = menuItem.priceFood
+                menuPrice.text = menuItem.priceFood.toString()
                 val uri = Uri.parse(menuItem.imageFood)
                 Glide.with(requireContext).load(uri).into(menuImage)
             }

@@ -7,52 +7,26 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dhv.hoangvu.dacs3_foodorderingapp.R
 import com.dhv.hoangvu.dacs3_foodorderingapp.adapter.MenuAdapter
 import com.dhv.hoangvu.dacs3_foodorderingapp.databinding.FragmentSearchBinding
+import com.dhv.hoangvu.dacs3_foodorderingapp.model.MenuItem
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class searchFragment : Fragment() {
-    private lateinit var adapter: MenuAdapter
     private lateinit var binding: FragmentSearchBinding
-    private val orignalMenuFoodName = listOf(
-        "Burger",
-        "Pizza",
-        "Pasta",
-        "Noodles",
-        "Sandwich",
-        "Burger",
-        "Pizza",
-        "Pasta",
-        "Noodles",
-        "Sandwich"
-    )
-    private val orrignalMenuItemPrice =
-        listOf("10$", "20$", "15$", "10$", "5$", "10$", "20$", "15$", "10$", "5$")
-    private val orrignalMenuFoodImages =
-        listOf(
-            R.drawable.photo1,
-            R.drawable.photo2,
-            R.drawable.photo3,
-            R.drawable.photo1,
-            R.drawable.photo2,
-            R.drawable.photo3,
-            R.drawable.photo1,
-            R.drawable.photo2,
-            R.drawable.photo3,
-            R.drawable.photo1
-        )
+    private lateinit var adapter: MenuAdapter
+    private lateinit var database: FirebaseDatabase
+    private val originalMenuItems = mutableListOf<MenuItem>()
 
-    private val filterMenuFoodName =
-        mutableListOf<String>() // danh sách lưu trữ các món ăn sau khi lọc tìm kiếm
-    private val filterMenuItemPrice = mutableListOf<String>()
-    private val filterMenuFoodImages = mutableListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,30 +34,47 @@ class searchFragment : Fragment() {
     ): View? {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
 
-//        adapter = MenuAdapter(
-//            filterMenuFoodName,
-//            filterMenuItemPrice,
-//            filterMenuFoodImages,
-//            requireContext()
-//        )
-//        MenuAdapter được khởi tạo với các dữ liệu rỗng
-        binding.menuRecylerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.menuRecylerView.adapter = adapter
-
+        //retrieve menu item from database
+        retrieveMenuItems()
+        // Set up for Search view
         setupSearchView()
-        showAllMenu()
         return binding.root
     }
 
-    private fun showAllMenu() {
-        filterMenuFoodName.clear()
-        filterMenuItemPrice.clear()
-        filterMenuFoodImages.clear()//xoá các danh sách tìm kiếm trước đó
+    private fun retrieveMenuItems() {
+        // get database reference
+        database = FirebaseDatabase.getInstance()
+        // reference to the menu node
+        val foodReference: DatabaseReference = database.reference.child("Food")
+        foodReference.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(foodSnapshot in snapshot.children){
+                    val menuItem = foodSnapshot.getValue(MenuItem::class.java)
+                    menuItem?.let{
+                        originalMenuItems.add(it)
+                    }
+                }
+                showAllMenu()
+            }
 
-        filterMenuFoodName.addAll(orignalMenuFoodName)//thêm tất cả các món ăn từ danh sách đầu vào danh sách lọc
-        filterMenuItemPrice.addAll(orrignalMenuItemPrice)
-        filterMenuFoodImages.addAll(orrignalMenuFoodImages)
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
+
+    private fun showAllMenu() {
+        val filteredMenuItem = ArrayList(originalMenuItems)
+        setAdapter(filteredMenuItem)
+    }
+
+    private fun setAdapter(filteredMenuItem: List<MenuItem>) {
+        adapter = MenuAdapter(filteredMenuItem, requireContext())
+        binding.menuRecylerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.menuRecylerView.adapter = adapter
+    }
+
 
     private fun setupSearchView() {
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
@@ -101,20 +92,11 @@ class searchFragment : Fragment() {
     }
 
     private fun filterMenuItems(query: String?) {
-        filterMenuFoodName.clear()
-        filterMenuItemPrice.clear()
-        filterMenuFoodImages.clear()
-
-        orignalMenuFoodName.forEachIndexed { index, foodName ->
-            if (foodName.contains(query.toString(), ignoreCase = true)) {
-                filterMenuFoodName.add(foodName)
-                filterMenuItemPrice.add(orrignalMenuItemPrice[index])
-                filterMenuFoodImages.add(orrignalMenuFoodImages[index])
-            }
+        val filteredMenuItem = originalMenuItems.filter{
+            it.nameFood?.contains(query.toString(), ignoreCase = true) == true
         }
-        adapter.notifyDataSetChanged()// cập nhật lại danh sách món ăn trên recyler
+        setAdapter(filteredMenuItem)
     }
-
     companion object {
 
     }
