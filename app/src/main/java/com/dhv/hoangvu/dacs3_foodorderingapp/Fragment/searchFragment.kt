@@ -60,12 +60,13 @@ class searchFragment : Fragment() {
     ): View? {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
 
-        adapter = MenuAdapter(
-            filterMenuFoodName,
-            filterMenuItemPrice,
-            filterMenuFoodImages,
-            requireContext()
-        )// MenuAdapter được khởi tạo với các dữ liệu rỗng
+//        adapter = MenuAdapter(
+//            filterMenuFoodName,
+//            filterMenuItemPrice,
+//            filterMenuFoodImages,
+//            requireContext()
+//        )
+//        MenuAdapter được khởi tạo với các dữ liệu rỗng
         binding.menuRecylerView.layoutManager = LinearLayoutManager(requireContext())
         binding.menuRecylerView.adapter = adapter
 

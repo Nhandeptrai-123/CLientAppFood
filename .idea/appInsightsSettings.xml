@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.dhv.hoangvu.dacs3_foodorderingapp" />
+                  <option name="mobileSdkAppId" value="1:236085361383:android:4dea1b4e16b503573fc042" />
+                  <option name="projectId" value="foodorderingapp-dacs3it" />
+                  <option name="projectNumber" value="236085361383" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
