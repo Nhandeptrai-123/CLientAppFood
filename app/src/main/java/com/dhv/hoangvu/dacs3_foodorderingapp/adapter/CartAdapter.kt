@@ -157,7 +157,9 @@ class CartAdapter(
                         return@forEachIndexed
                     }
                 }
-                onComplete(uniquekey ?: "") // Gọi onComplete ở đây sau khi uniquekey đã được xác định
+                val key = uniquekey ?: "" // Nếu uniquekey là null, sử dụng chuỗi trống
+                // Gọi onComplete ở đây sau khi uniquekey đã được xác định
+                onComplete(key)
             }
 
             override fun onCancelled(error: DatabaseError) {
