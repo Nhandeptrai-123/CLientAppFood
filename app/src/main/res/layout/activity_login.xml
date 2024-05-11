@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo2" />
 
     <TextView
         android:id="@+id/textView13"
@@ -147,7 +147,7 @@
         android:layout_width="152dp"
         android:layout_height="57dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/greenbutton"
+        android:background="@drawable/bluebutton"
         android:fontFamily="@font/yeonsung_regular"
         android:text="Đăng Nhập"
         android:textColor="@color/white"
