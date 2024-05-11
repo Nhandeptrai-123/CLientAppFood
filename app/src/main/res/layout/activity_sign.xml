@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/userName"
         android:layout_width="325dp"
         android:layout_height="57dp"
         android:layout_marginTop="14dp"
@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/emailAddress"
         android:layout_width="325dp"
         android:layout_height="57dp"
         android:layout_marginTop="12dp"
@@ -84,20 +84,19 @@
         android:ems="10"
         android:fontFamily="@font/lato_bold"
         android:hint="Email or Phone Number"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/password"
         android:layout_width="325dp"
         android:layout_height="57dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/whitebutton"
         android:drawableLeft="@drawable/lock"
-        android:drawableRight="@drawable/eye_hide"
         android:drawablePadding="15dp"
         android:elevation="5dp"
         android:ems="10"
@@ -107,7 +106,7 @@
         android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
+        app:layout_constraintTop_toBottomOf="@+id/emailAddress" />
 
     <TextView
         android:id="@+id/textView22"
@@ -118,7 +117,7 @@
         android:text="Or"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
         android:id="@+id/textView23"
@@ -164,7 +163,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCreate"
+        android:id="@+id/createAccountButton"
         android:layout_width="157dp"
         android:layout_height="57dp"
         android:layout_marginTop="16dp"
@@ -182,11 +181,12 @@
         android:id="@+id/alreadyhavebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/lato_bold"
         android:text="Bạn đã có tài khoản?"
         android:textColor="@color/testColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCreate" />
+        app:layout_constraintTop_toBottomOf="@+id/createAccountButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
