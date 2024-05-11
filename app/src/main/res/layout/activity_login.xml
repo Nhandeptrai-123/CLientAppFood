@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo2" />
 
     <TextView
         android:id="@+id/textView13"
@@ -53,41 +53,50 @@
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-    <EditText
-        android:id="@+id/emailAddress"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layOutemailAddress"
         android:layout_width="325dp"
-        android:layout_height="57dp"
+        android:layout_height="70dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/edittextshape"
-        android:drawableLeft="@drawable/mail"
-        android:drawablePadding="15dp"
         android:elevation="5dp"
         android:ems="10"
-        android:hint="Email or Phone Number"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="@+id/textView15"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:startIconDrawable="@drawable/mail">
 
-    <EditText
-        android:id="@+id/password"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:hint="Nhập địa chỉ email hoặc số điện thoại"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layOutpassword"
         android:layout_width="325dp"
-        android:layout_height="57dp"
+        android:layout_height="80dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/edittextshape"
-        android:drawableLeft="@drawable/lock"
-        android:drawablePadding="15dp"
         android:elevation="5dp"
         android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/emailAddress"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="@+id/layOutemailAddress"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/emailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/emailAddress" />
+        app:layout_constraintStart_toStartOf="@+id/layOutemailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/layOutemailAddress"
+        app:startIconDrawable="@drawable/lock">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:hint="Nhập mật khẩu"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView16"
@@ -95,17 +104,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/yeonsung_regular"
-        android:text="Or"
-        app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        android:text="Hoặc"
+        app:layout_constraintEnd_toEndOf="@+id/layOutpassword"
+        app:layout_constraintStart_toStartOf="@+id/layOutpassword"
+        app:layout_constraintTop_toBottomOf="@+id/layOutpassword" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/yeonsung_regular"
-        android:text="Continue With"
+        android:text="Tiếp tục với"
         app:layout_constraintEnd_toEndOf="@+id/textView16"
         app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
@@ -147,7 +156,7 @@
         android:layout_width="152dp"
         android:layout_height="57dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/greenbutton"
+        android:background="@drawable/bluebutton"
         android:fontFamily="@font/yeonsung_regular"
         android:text="Đăng Nhập"
         android:textColor="@color/white"

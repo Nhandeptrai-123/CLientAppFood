@@ -2,8 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="testColor">#1FC57A</color>
-    <color name="startColor">#53E88B</color>
-    <color name="endColor">#15BE77</color>
-    <color name="textcolor">#15BE77</color>
+    <color name="testColor">#62A7DD</color>
+    <color name="startColor">#62A7DD</color>
+    <color name="endColor">#0C71C1</color>
+    <color name="textcolor">#3A72E3</color>
 </resources>
