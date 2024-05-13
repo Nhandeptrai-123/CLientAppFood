@@ -1,17 +1,10 @@
 package com.dhv.hoangvu.dacs3_foodorderingapp
 
-import android.content.ContentValues.TAG
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import android.view.TextureView
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
@@ -51,10 +44,10 @@ class DetailsActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        with(binding){
-            tvDetailFoodName.text= nameFood
-            tvMoTa.text= moTaFood
-            tvNguyenLieu.text= nguyenLieu
+        with(binding) {
+            tvDetailFoodName.text = nameFood
+            tvMoTa.text = moTaFood
+            tvNguyenLieu.text = nguyenLieu
             Glide.with(this@DetailsActivity).load(Uri.parse(imageFood)).into(imgFood)
         }
 
@@ -62,29 +55,33 @@ class DetailsActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             finish()
         }
-        binding.addItemButton.setOnClickListener{
+        binding.addItemButton.setOnClickListener {
             setThemGioHang()
         }
 
     }
 
 
-    
     private fun setThemGioHang() {
         val database = FirebaseDatabase.getInstance().reference
-        val userId = auth.currentUser?.uid?:""
+        val userId = auth.currentUser?.uid ?: ""
 
 //        val price: Int = priceFood?.toIntOrNull() ?: 0
 //        val foodprice: Int  = price.toInt()
 
-        var giohangitem = GioHangItem(nameFood.toString(),priceFood.toString(), moTaFood.toString(),imageFood.toString(),1 )
+        var giohangitem = GioHangItem(
+            nameFood.toString(),
+            priceFood.toString(),
+            moTaFood.toString(),
+            imageFood.toString(),
+            1
+        )
 
-        database.child("user").child(userId).child("GioHang").push().setValue(giohangitem)
-            .addOnCompleteListener{
+        database.child("ClientUser").child(userId).child("GioHang").push().setValue(giohangitem)
+            .addOnCompleteListener {
                 Toast.makeText(this, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show()
-            }.addOnFailureListener{
+            }.addOnFailureListener {
                 Toast.makeText(this, "Không thể thêm vào giỏ hàng", Toast.LENGTH_SHORT).show()
-
             }
     }
 

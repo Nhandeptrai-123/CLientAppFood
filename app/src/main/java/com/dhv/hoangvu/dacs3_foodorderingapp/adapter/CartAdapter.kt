@@ -30,7 +30,7 @@ class CartAdapter(
     private val cartDescription:MutableList<String>,
     private val cartImages: MutableList<String>,
     private val cartQuantity: MutableList<Int>,
-    private val cartIngredient: MutableList<String>,
+//    private val cartIngredient: MutableList<String>,
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     //khởi tạo firebase
@@ -42,7 +42,7 @@ class CartAdapter(
         val cartItemNumber = cartItems.size
 
         itemQuantities = IntArray(cartItemNumber){1}
-        cartItemReference = database.reference.child("user").child(useId).child("GioHang")
+        cartItemReference = database.reference.child("ClientUser").child(useId).child("GioHang")
 
 
     }
@@ -101,6 +101,7 @@ class CartAdapter(
         private fun decreaseQuantity(position: Int) {
             if (itemQuantities[position] > 1) {
                 itemQuantities[position]--
+                cartQuantity[position] = itemQuantities[position]
                 binding.cartItemQuantity.text = itemQuantities[position].toString()
             }
         }
@@ -108,6 +109,7 @@ class CartAdapter(
         private fun increaseQuantity(position: Int) {
             if (itemQuantities[position] < 10) {
                 itemQuantities[position]++
+                cartQuantity[position] = itemQuantities[position]
                 binding.cartItemQuantity.text = itemQuantities[position].toString()
             }
         }
@@ -132,7 +134,7 @@ class CartAdapter(
                 cartDescription.removeAt(position)
                 cartQuantity.removeAt(position)
                 cartItemPrices.removeAt(position)
-                cartIngredient.removeAt(position)
+//                cartIngredient.removeAt(position)
 
                 Toast.makeText(context, "Xoá thành công", Toast.LENGTH_SHORT).show()
                 //uppdate lại số lượng
@@ -166,6 +168,13 @@ class CartAdapter(
                 // Xử lý khi có lỗi
             }
         })
+    }
+
+    // Hàm cập nhật dữ liêu Quantity
+    fun getUpdateItemsQuamtities(): MutableList<Int> {
+        val itemQuantity = mutableListOf<Int>()
+        itemQuantity.addAll(cartQuantity)
+        return itemQuantity
     }
 
 }
