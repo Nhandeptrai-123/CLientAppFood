@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.dhv.hoangvu.dacs3_foodorderingapp" />
-                  <option name="mobileSdkAppId" value="1:236085361383:android:4dea1b4e16b503573fc042" />
-                  <option name="projectId" value="foodorderingapp-dacs3it" />
-                  <option name="projectNumber" value="236085361383" />
+                  <option name="mobileSdkAppId" value="1:446657244218:android:f83d4fc96822744e2f5903" />
+                  <option name="projectId" value="foodorderingvn-dacs3it" />
+                  <option name="projectNumber" value="446657244218" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

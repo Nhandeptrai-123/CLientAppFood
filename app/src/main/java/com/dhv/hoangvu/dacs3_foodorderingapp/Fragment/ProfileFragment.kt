@@ -35,25 +35,28 @@ class ProfileFragment : Fragment() {
 
         binding.saveInfoButton.setOnClickListener {
             val name = binding.name.text.toString()
-            val email = binding.email.text.toString()
             val address = binding.address.text.toString()
             val phone = binding.phone.text.toString()
-
-            updateUserData(name, email, address, phone)
+            if (name.isEmpty() || address.isEmpty() || phone.isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Vui lòng nhập đầy đủ thông tin",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                updateUserData(name, address, phone)
+            }
         }
         return binding.root
-
-        return view
     }
 
-    private fun updateUserData(name: String, email: String, address: String, phone: String) {
+    private fun updateUserData(name: String, address: String, phone: String) {
         val usreIn = auth.currentUser?.uid
         if (usreIn != null) {
             val userReference = database.getReference("ClientUser").child(usreIn)
             val userData = hashMapOf(
                 "name" to name,
                 "address" to address,
-                "email" to email,
                 "phone" to phone,
             )
             userReference.setValue(userData).addOnSuccessListener {
@@ -61,7 +64,11 @@ class ProfileFragment : Fragment() {
                     .show()
             }
                 .addOnFailureListener {
-                    Toast.makeText(requireContext(), "Cập nhật hồ sơ không thành công", Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        requireContext(),
+                        "Cập nhật hồ sơ không thành công",
+                        Toast.LENGTH_SHORT
+                    )
                         .show()
                 }
         }
@@ -78,9 +85,7 @@ class ProfileFragment : Fragment() {
                         if (userProfile != null) {
                             binding.name.setText(userProfile.name)
                             binding.address.setText(userProfile.address)
-                            binding.email.setText(userProfile.email)
                             binding.phone.setText(userProfile.phone)
-
                         }
                     }
                 }
