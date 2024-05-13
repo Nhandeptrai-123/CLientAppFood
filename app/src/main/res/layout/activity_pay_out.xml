@@ -53,6 +53,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -81,6 +82,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/addres"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -109,6 +111,7 @@
                 android:textSize="20dp" />
 
             <EditText
+                android:id="@+id/phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -163,6 +166,7 @@
                 android:text="Tổng chi phí" />
 
             <EditText
+                android:id="@+id/totalAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -171,7 +175,8 @@
                 android:gravity="end"
                 android:inputType="none"
                 android:paddingEnd="32dp"
-                android:text="$5"
+                android:text=""
+                android:textColor="#074EDC"
                 android:textSize="20sp" />
         </LinearLayout>
 
