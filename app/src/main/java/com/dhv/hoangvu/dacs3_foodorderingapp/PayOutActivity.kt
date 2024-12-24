@@ -45,8 +45,7 @@ class PayOutActivity : AppCompatActivity() {
         foodItemName = intent.getStringArrayListExtra("FoodItemName") as ArrayList<String>
         foodItemPrice = intent.getStringArrayListExtra("FoodItemPrice") as ArrayList<String>
         foodItemImage = intent.getStringArrayListExtra("FoodItemImage") as ArrayList<String>
-        foodItemDescription =
-            intent.getStringArrayListExtra("FoodItemDescripion") as ArrayList<String>
+        foodItemDescription = intent.getStringArrayListExtra("FoodItemDescripion") as ArrayList<String>
         foodItemQuantities = intent.getIntegerArrayListExtra("FoodItemQuantity") as ArrayList<Int>
 
 
