@@ -1,4 +1,4 @@
-DEMO IMAGES:
+A few small demos
 Log , Register:
 ![image](https://github.com/user-attachments/assets/c2916799-7cd7-4501-9109-df90df600536)
 ![image](https://github.com/user-attachments/assets/0d13bf44-ff08-4f59-8c28-06cdac0bf93f)
